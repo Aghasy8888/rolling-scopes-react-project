@@ -1,1 +1,0 @@
-# rolling-scopes-react-project
