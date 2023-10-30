@@ -1,0 +1,36 @@
+.personCard {
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: all 400ms ease;
+  width: 200px;
+  cursor: pointer;
+  &:hover {
+    transform: scale(1.04);
+  }
+  .personName {
+    color: #000;
+    font-family: 'Alegreya', serif;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 24px;
+    padding: 16px 16px;
+    margin: 0;
+  }
+  .description {
+    padding: 0 16px 16px;
+    margin: 0;
+    font-family: 'Alegreya', serif;
+  }
+}
+
+@media (max-width: 495px) {
+  .personCard {
+    width: 300px;
+    .personName {
+      font-size: 30px;
+      line-height: 30px;
+    }
+  }
+}

@@ -1,0 +1,28 @@
+.starWarsApp {
+  position: relative;
+  .logo {
+    margin: 20px 0 0 20px;
+    font-family: 'Alegria', sans-serif;
+    cursor: pointer;
+    span {
+      color: darkcyan;
+    }
+  }
+  .testErrorBounderyBtn {
+    position: fixed;
+    top: 21px;
+    right: 20px;
+    background: #fff;
+    height: 34px;
+    border-radius: 7px;
+    border: 2px solid #0a66c2;
+    cursor: pointer;
+    &:hover {
+        background: #c4d0dd;
+        box-shadow: inset 0 0 0 1px #0a66c2;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 167ms;
+        transition-property: background-color, box-shadow, color;
+      }
+  }
+}
