@@ -1,4 +1,4 @@
-.personCard {
+.berryCard {
   position: relative;
   background: #fff;
   overflow: hidden;
@@ -9,7 +9,7 @@
   &:hover {
     transform: scale(1.04);
   }
-  .personName {
+  .berryName {
     color: #000;
     font-family: 'Alegreya', serif;
     font-size: 18px;
@@ -26,9 +26,9 @@
 }
 
 @media (max-width: 495px) {
-  .personCard {
+  .berryCard {
     width: 300px;
-    .personName {
+    .berryName {
       font-size: 30px;
       line-height: 30px;
     }

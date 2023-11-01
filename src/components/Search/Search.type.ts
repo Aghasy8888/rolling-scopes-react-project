@@ -1,19 +1,17 @@
 import {
-  setPeople,
+  setBerries,
   setShowAuthSpinner,
-} from '../StartWarsApp/StartWarsApp.types';
-
-export type SearchState = {
-  windowWidth: number;
-};
+} from '../PokemonApp/PokemonApp.types';
 
 export type SearchProps = {
-  setPeople: setPeople;
+  setBerries: setBerries;
   setSearch: (search: string) => void;
   searchValue: string | null;
   setShowAuthSpinner: setShowAuthSpinner;
 };
 
-export type PersonParams = {
-  search?: string | null;
+export type BerryParams = {
+  limit: string;
+  offset: string;
+  [key: string]: string;
 };

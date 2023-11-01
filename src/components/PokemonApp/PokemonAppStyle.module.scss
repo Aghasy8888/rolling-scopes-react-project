@@ -1,6 +1,7 @@
 .starWarsApp {
   position: relative;
   .logo {
+    display: inline-block;
     margin: 20px 0 0 20px;
     font-family: 'Alegria', sans-serif;
     cursor: pointer;

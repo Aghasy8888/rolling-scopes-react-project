@@ -1,8 +1,8 @@
 import Search from './Search/Search';
-import StarWarsApp from './StartWarsApp/StarWarsApp';
-import People from './People/People';
-import PersonCard from './Person/PersonCard';
+import PokemonApp from './PokemonApp/PokemonApp';
+import Berries from './Berries/Berries';
+import BerryCard from './Berry/BerryCard';
 import Spinner from './Spinner/Spinner';
 import ErrorBoundery from './ErrorBoundery/ErrorBoundery';
 
-export { Search, StarWarsApp, People, PersonCard, Spinner, ErrorBoundery };
+export { Search, PokemonApp, Berries, BerryCard, Spinner, ErrorBoundery };

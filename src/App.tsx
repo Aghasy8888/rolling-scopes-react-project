@@ -1,29 +1,16 @@
-import { Component } from 'react';
-import { Spinner, StarWarsApp } from './components';
+import React from 'react';
+import { useState } from 'react';
+import { Spinner, PokemonApp } from './components';
 
-type AppState = {
-  showAuthSpinner: boolean;
-};
+function App() {
+  const [showAuthSpinner, setShowAuthSpinner] = useState(false);
 
-class App extends Component<Record<string, never>, AppState> {
-  state = {
-    showAuthSpinner: false,
-  };
-
-  setShowAuthSpinner = (showAuthSpinner: boolean) => {
-    this.setState({
-      showAuthSpinner,
-    });
-  };
-
-  render() {
-    return (
-      <div>
-        <StarWarsApp setShowAuthSpinner={this.setShowAuthSpinner} />
-        {this.state.showAuthSpinner && <Spinner />}
-      </div>
-    );
-  }
+  return (
+    <div>
+      <PokemonApp setShowAuthSpinner={setShowAuthSpinner} />
+      {showAuthSpinner && <Spinner />}
+    </div>
+  );
 }
 
 export default App;

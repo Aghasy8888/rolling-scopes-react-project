@@ -1,67 +1,45 @@
-import { Component } from 'react';
+import React from 'react';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { SearchProps, SearchState } from './Search.type';
-import { getPeople } from '../../helpers/getPeople';
+import { SearchProps } from './Search.type';
+import { getBerries } from '../../helpers/getBerries';
+import useInnerWidth from '../../hooks/useInnerWidth';
 
 import styles from './SearchStyles.module.scss';
 
-class Search extends Component<SearchProps, SearchState> {
-  state = {
-    windowWidth: window.innerWidth,
-  };
+function Search(props: SearchProps) {
+  const windowWidth = useInnerWidth();
 
-  handleResize = () => {
-    this.setState({ windowWidth: window.innerWidth });
-  };
-
-  componentDidMount() {
-    window.addEventListener('resize', this.handleResize);
-  }
-
-  componentWillUnmount() {
-    window.removeEventListener('resize', this.handleResize);
-  }
-
-  handleSubmit = () => {
-    const { searchValue, setPeople, setShowAuthSpinner } = this.props;
-    const searchData = {
-      search: searchValue?.trim(),
-    };
+  const handleSubmit = () => {
+    const { searchValue, setBerries, setShowAuthSpinner } = props;
 
     setShowAuthSpinner(true);
     localStorage.setItem('search', `${searchValue?.trim()}`);
 
-    getPeople(searchData, setPeople, setShowAuthSpinner);
+    getBerries(setBerries, setShowAuthSpinner, searchValue?.trim());
   };
 
-  render() {
-    return (
-      <section className={styles.searchContainer}>
-        <div className={styles.inputGroup}>
-          <input
-            className={styles.formControl}
-            placeholder="Search..."
-            value={this.props.searchValue ? this.props.searchValue : ''}
-            onChange={(event) => this.props.setSearch(event.target.value)}
-            onKeyDown={(event) => {
-              if (event.key === 'Enter') {
-                this.handleSubmit();
-              }
-            }}
-          />
+  return (
+    <section className={styles.searchContainer}>
+      <div className={styles.inputGroup}>
+        <input
+          className={styles.formControl}
+          placeholder="Search..."
+          value={props.searchValue ? props.searchValue : ''}
+          onChange={(event) => props.setSearch(event.target.value)}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter') {
+              handleSubmit();
+            }
+          }}
+        />
 
-          <button className={styles.search} onClick={this.handleSubmit}>
-            {this.state.windowWidth < 720 ? (
-              <FontAwesomeIcon icon={faSearch} />
-            ) : (
-              'Search'
-            )}
-          </button>
-        </div>
-      </section>
-    );
-  }
+        <button className={styles.search} onClick={handleSubmit}>
+          {windowWidth < 720 ? <FontAwesomeIcon icon={faSearch} /> : 'Search'}
+        </button>
+      </div>
+    </section>
+  );
 }
 
 export default Search;
